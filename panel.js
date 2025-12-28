@@ -93,7 +93,7 @@ function render(tab, snapshot, query = "") {
   list.innerHTML = "";
   for (const it of filtered) {
     const div = document.createElement("div");
-    div.className = "node";
+    div.className = `node ${it.role || "unknown"}`;
     div.innerHTML = `
       <div>
         <span class="badge ${it.role}">${it.role}</span>
@@ -123,3 +123,13 @@ chrome.runtime.onMessage.addListener((msg) => {
 });
 
 refresh();
+let lastUrl = null;
+
+setInterval(async () => {
+  const tab = await getTargetChatGPTTab();
+  const url = tab?.url || null;
+  if (url && url !== lastUrl) {
+    lastUrl = url;
+    refresh();
+  }
+}, 800);

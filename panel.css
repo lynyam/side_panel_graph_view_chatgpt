@@ -10,3 +10,18 @@ main { padding: 10px; }
 .badge.user { background: #fff; }
 .badge.assistant { background: #f3f7ff; }
 .small { opacity: 0.75; font-size: 12px; }
+/* Fond différent selon le rôle */
+.node.user {
+  background: #f6fff7; /* léger vert */
+  border-color: #cfe9d3;
+}
+
+.node.assistant {
+  background: #f3f7ff; /* léger bleu */
+  border-color: #cfdcf6;
+}
+
+.node.unknown {
+  background: #fafafa; /* neutre */
+  border-color: #e6e6e6;
+}
