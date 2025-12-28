@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "ChatGPT Graph Navigator",
+  "version": "0.1.0",
+  "description": "Graph view for ChatGPT conversations + click-to-jump.",
+  "permissions": ["storage", "tabs", "sidePanel"],
+  "host_permissions": ["https://chatgpt.com/*", "https://chat.openai.com/*"],
+  "background": { "service_worker": "background.js" },
+  "action": { "default_title": "ChatGPT Graph" },
+  "side_panel": { "default_path": "panel.html" },
+  "content_scripts": [
+    {
+      "matches": ["https://chatgpt.com/*", "https://chat.openai.com/*"],
+      "js": ["contentScript.js"],
+      "css": ["contentStyles.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}

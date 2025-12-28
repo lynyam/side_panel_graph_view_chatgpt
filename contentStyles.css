@@ -1,0 +1,5 @@
+.oai-graph-focus {
+  outline: 3px solid rgba(255, 200, 0, 0.95);
+  border-radius: 12px;
+  transition: outline 0.15s ease;
+}
